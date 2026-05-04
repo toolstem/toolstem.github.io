@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolstem Support — Contact, status, and frequently asked questions</title>
+  <meta name="description" content="Contact admin@toolstem.com or open a GitHub issue. Status page, response expectations, security disclosure, and answers to common integration questions.">
+  <meta property="og:title" content="Toolstem Support — Contact, status, and frequently asked questions">
+  <meta property="og:description" content="Contact admin@toolstem.com or open a GitHub issue. Status page, response expectations, security disclosure, and answers to common integration questions.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://toolstem.com/support/">
+  <meta property="og:url" content="https://toolstem.com/support/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    // Theme bootstrap (runs before paint to avoid flash)
+    (function() {
+      var t = (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Toolstem home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+        <path d="M4 7 L12 11 L20 7"/>
+        <path d="M12 11 L12 21"/>
+      </svg>
+      <span>Toolstem</span>
+    </a>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/finance/">Finance</a>
+      <a href="/sec/">SEC</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="container container--narrow prose">
+    <h1>Support</h1>
+    <p class="meta">Toolstem is operated autonomously. Support is best-effort by email and GitHub.</p>
+
+    <h2>Contact</h2>
+    <ul>
+      <li><strong>Email</strong>: <a href="mailto:admin@toolstem.com">admin@toolstem.com</a> — typical response within 24 hours, faster on weekdays.</li>
+      <li><strong>GitHub issues</strong>: <a href="https://github.com/toolstem" rel="noopener">github.com/toolstem</a> — best for bugs, feature requests, and integration questions.</li>
+    </ul>
+
+    <h2>Status</h2>
+    <p>Both servers are currently operational. Live status is reflected in real time on the <a href="/">homepage</a>.</p>
+
+    <h2>Common questions</h2>
+
+    <h3>Do I need an account to use Toolstem?</h3>
+    <p>No, if you pay via x402 — just connect your MCP client to the endpoint, and your agent's wallet handles payment per call. Yes, if you use the Apify path — you need a funded Apify account.</p>
+
+    <h3>What happens if a tool call fails?</h3>
+    <p>If the server returns 5xx, no payment settles (we only settle on a 200 response). Email <a href="mailto:admin@toolstem.com">admin@toolstem.com</a> if you observe a payment without data.</p>
+
+    <h3>Can I get a higher rate limit or volume pricing?</h3>
+    <p>Yes — for sustained volume above 100,000 calls/month, email <a href="mailto:admin@toolstem.com">admin@toolstem.com</a>.</p>
+
+    <h3>Where does the data come from?</h3>
+    <p>Finance data comes from Financial Modeling Prep. SEC data comes directly from SEC EDGAR. Toolstem adds an MCP-compatible API surface and pay-per-call settlement on top.</p>
+
+    <h3>Is Toolstem affiliated with Coinbase, Anthropic, or any other named company?</h3>
+    <p>No. Toolstem is an independent operator. We use Coinbase CDP as our x402 facilitator and the Anthropic-led MCP standard as our protocol — the same way any developer might use AWS or Stripe.</p>
+
+    <h2>Security</h2>
+    <p>Report security issues privately to <a href="mailto:admin@toolstem.com">admin@toolstem.com</a> with subject line "Security". Please do not file public GitHub issues for sensitive vulnerabilities.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="site-header__brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+            <path d="M4 7 L12 11 L20 7"/>
+            <path d="M12 11 L12 21"/>
+          </svg>
+          <span>Toolstem</span>
+        </a>
+        <p>Pay-per-call MCP servers for AI agents. Operated autonomously. Built in Austin, Texas.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servers">
+        <h2 class="footer-col__heading">Servers</h2>
+        <ul>
+          <li><a href="/finance/">Finance</a></li>
+          <li><a href="/sec/">SEC EDGAR</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h2 class="footer-col__heading">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://apify.com/toolstem" rel="noopener noreferrer">Apify Store</a></li>
+          <li><a href="/docs/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h2 class="footer-col__heading">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Toolstem. Built in Austin, Texas.</span>
+      <span><a href="mailto:admin@toolstem.com">admin@toolstem.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>// Theme toggle (in-memory only, sandbox-safe) + mobile nav drawer
+(function () {
+  var root = document.documentElement;
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tt = e.target.closest('[data-theme-toggle]');
+    if (tt) {
+      var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+      return;
+    }
+    var navBtn = e.target.closest('[data-nav-toggle]');
+    if (navBtn) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        var open = nav.classList.toggle('site-nav--open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
+  });
+
+  // Close nav when a link is clicked (mobile)
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav a')) {
+      var nav = document.getElementById('site-nav');
+      if (nav && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        var btn = document.querySelector('[data-nav-toggle]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

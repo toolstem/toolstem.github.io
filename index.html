@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolstem — Pay-per-call MCP servers for AI agents</title>
+  <meta name="description" content="Pay-per-call MCP servers for autonomous AI agents. No accounts. No API keys. Just HTTP 402, settled in seconds on Base. Financial data and SEC EDGAR endpoints.">
+  <meta property="og:title" content="Toolstem — Pay-per-call MCP servers for AI agents">
+  <meta property="og:description" content="Pay-per-call MCP servers for autonomous AI agents. No accounts. No API keys. Just HTTP 402, settled in seconds on Base. Financial data and SEC EDGAR endpoints.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://toolstem.com/">
+  <meta property="og:url" content="https://toolstem.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    // Theme bootstrap (runs before paint to avoid flash)
+    (function() {
+      var t = (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Toolstem home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+        <path d="M4 7 L12 11 L20 7"/>
+        <path d="M12 11 L12 21"/>
+      </svg>
+      <span>Toolstem</span>
+    </a>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/finance/">Finance</a>
+      <a href="/sec/">SEC</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container">
+    <span class="hero__eyebrow">x402 native · MCP standard</span>
+    <h1>Pay-per-call MCP servers for AI&nbsp;agents.</h1>
+    <p class="hero__lede">
+      No accounts. No API keys. No monthly contracts.
+      Just HTTP 402, settled on Base in seconds.
+      Built for autonomous agents that buy data without a human in the loop.
+    </p>
+    <div class="hero__cta">
+      <a href="/docs/" class="btn btn--primary">
+        Read the docs
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="https://github.com/toolstem" rel="noopener" class="btn btn--ghost">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.014-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.682-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.748-1.025 2.748-1.025.546 1.378.202 2.394.1 2.647.64.698 1.028 1.591 1.028 2.682 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.137 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="container">
+    <h2 class="section__title">Two servers. Both live. Both autonomous.</h2>
+    <p class="section__lede">Each server speaks the Model Context Protocol and accepts payment via x402 or Apify. Connect from any MCP-compatible agent.</p>
+    <div class="products__grid">
+      <article class="product-card">
+        <span class="product-card__tag">Finance</span>
+        <h3>Toolstem Financial Intelligence</h3>
+        <p>Real-time stock fundamentals, market data, and global equity quotes (US, EU, APAC). Earnings, ratios, peer comps, technicals. Powered by Financial Modeling Prep.</p>
+        <a href="/finance/" class="product-card__link">
+          Explore the Finance server
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <div class="product-card__meta">
+          <span><strong>$0.01</strong>/call (x402)</span>
+          <span><strong>$0.005</strong>/call (Apify)</span>
+        </div>
+      </article>
+      <article class="product-card">
+        <span class="product-card__tag">SEC</span>
+        <h3>Toolstem SEC EDGAR Signal Intelligence</h3>
+        <p>Pay-per-call access to SEC EDGAR filings: 10-K, 10-Q, 8-K, insider transactions, institutional holdings, earnings transcripts. The only x402-listed SEC EDGAR endpoint we know of.</p>
+        <a href="/sec/" class="product-card__link">
+          Explore the SEC server
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <div class="product-card__meta">
+          <span><strong>$0.01</strong>/call (x402)</span>
+          <span><strong>$0.005</strong>/call (Apify)</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">How it works</h2>
+    <p class="section__lede">An agent calls a tool. The server returns 402 with a payment challenge in the response header. The agent's wallet signs. The server returns data. End to end in seconds.</p>
+
+    <div class="code-block">
+      <div class="code-block__header">
+        <span>curl · x402 challenge</span>
+        <span>HTTP 402</span>
+      </div>
+<pre><code><span class="cmt"># 1. Agent attempts the tool call</span>
+<span class="kw">$</span> curl -i -X POST https://mcp.toolstem.com/mcp/finance \
+    -H <span class="str">"Content-Type: application/json"</span> \
+    -d <span class="str">'{"jsonrpc":"2.0","id":1,"method":"tools/call",
+        "params":{"name":"get_quote","arguments":{"symbol":"AAPL"}}}'</span>
+
+<span class="cmt"># Server responds: HTTP 402 Payment Required.
+# The response body is empty {}; the x402 challenge
+# is delivered in the `payment-required` HEADER, base64-encoded.</span>
+
+HTTP/2 402
+content-type: application/json
+payment-required: eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoi...
+
+{}
+
+<span class="cmt"># Decoded `payment-required` header:</span>
+{
+  <span class="kw">"x402Version"</span>: 2,
+  <span class="kw">"accepts"</span>: [{
+    <span class="kw">"scheme"</span>: <span class="str">"exact"</span>,
+    <span class="kw">"network"</span>: <span class="str">"eip155:8453"</span>,
+    <span class="kw">"amount"</span>: <span class="str">"10000"</span>,           <span class="cmt">// 0.01 USDC, 6 decimals</span>
+    <span class="kw">"asset"</span>: <span class="str">"0x833589fCD..."</span>, <span class="cmt">// USDC on Base</span>
+    <span class="kw">"payTo"</span>: <span class="str">"0xB009DA69..."</span>,
+    <span class="kw">"maxTimeoutSeconds"</span>: 60
+  }]
+}</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-block__header">
+        <span>x402 settled call · agent-side flow</span>
+        <span>HTTP 200</span>
+      </div>
+<pre><code><span class="cmt"># 2. Agent's wallet signs EIP-3009 transferWithAuthorization,
+#    re-issues the request with the X-PAYMENT header.
+#    Coinbase CDP facilitator settles on Base. Server returns data.</span>
+
+<span class="kw">$</span> curl -X POST https://mcp.toolstem.com/mcp/finance \
+    -H <span class="str">"X-PAYMENT: &lt;signed-payload&gt;"</span> \
+    -d <span class="str">'{"jsonrpc":"2.0","id":1,...}'</span>
+
+<span class="cmt"># 200 OK — data arrives, payment settled on chain.</span>
+{
+  <span class="kw">"jsonrpc"</span>: <span class="str">"2.0"</span>, <span class="kw">"id"</span>: 1,
+  <span class="kw">"result"</span>: {
+    <span class="kw">"symbol"</span>: <span class="str">"AAPL"</span>,
+    <span class="kw">"price"</span>: 184.92,
+    <span class="kw">"change"</span>: 1.34,
+    <span class="kw">"marketCap"</span>: 2840000000000
+  }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section__title">Built for the agent stack</h2>
+    <p class="section__lede">No human-only auth flows. No subscription portals. Just a URL and a wallet.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+        </div>
+        <h3>HTTP-native payments</h3>
+        <p>Built on the x402 spec — the same protocol Coinbase, Cloudflare, and CoinGecko use. EIP-3009 USDC on Base mainnet. No bridges, no escrow.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>MCP standard</h3>
+        <p>Streamable HTTP transport per the Model Context Protocol spec. Compatible with Claude, Cursor, Cline, LangChain, and any framework that speaks MCP.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <h3>Two payment paths</h3>
+        <p>Pay per call via x402 (true agent-to-agent, no humans), or settle monthly via Apify ($0.005/call) if you prefer subscription billing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Status</h2>
+    <p class="section__lede">Both servers are operational. Live data verified.</p>
+    <div class="status-row">
+      <div class="status-cell">
+        <div class="status-cell__label">Finance</div>
+        <div class="status-cell__value status-cell__value--ok">Operational</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-cell__label">SEC EDGAR</div>
+        <div class="status-cell__value status-cell__value--ok">Operational</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-cell__label">x402 facilitator</div>
+        <div class="status-cell__value status-cell__value--ok">Coinbase CDP</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-cell__label">Settlement</div>
+        <div class="status-cell__value">Base mainnet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="site-header__brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+            <path d="M4 7 L12 11 L20 7"/>
+            <path d="M12 11 L12 21"/>
+          </svg>
+          <span>Toolstem</span>
+        </a>
+        <p>Pay-per-call MCP servers for AI agents. Operated autonomously. Built in Austin, Texas.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servers">
+        <h2 class="footer-col__heading">Servers</h2>
+        <ul>
+          <li><a href="/finance/">Finance</a></li>
+          <li><a href="/sec/">SEC EDGAR</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h2 class="footer-col__heading">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://apify.com/toolstem" rel="noopener noreferrer">Apify Store</a></li>
+          <li><a href="/docs/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h2 class="footer-col__heading">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Toolstem. Built in Austin, Texas.</span>
+      <span><a href="mailto:admin@toolstem.com">admin@toolstem.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>// Theme toggle (in-memory only, sandbox-safe) + mobile nav drawer
+(function () {
+  var root = document.documentElement;
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tt = e.target.closest('[data-theme-toggle]');
+    if (tt) {
+      var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+      return;
+    }
+    var navBtn = e.target.closest('[data-nav-toggle]');
+    if (navBtn) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        var open = nav.classList.toggle('site-nav--open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
+  });
+
+  // Close nav when a link is clicked (mobile)
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav a')) {
+      var nav = document.getElementById('site-nav');
+      if (nav && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        var btn = document.querySelector('[data-nav-toggle]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

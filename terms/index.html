@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolstem — Terms of Service for the pay-per-call MCP servers</title>
+  <meta name="description" content="Toolstem terms of service: acceptable use, payment terms, data accuracy disclaimers, limitation of liability, and governing law for the Finance and SEC EDGAR MCP servers.">
+  <meta property="og:title" content="Toolstem — Terms of Service for the pay-per-call MCP servers">
+  <meta property="og:description" content="Toolstem terms of service: acceptable use, payment terms, data accuracy disclaimers, limitation of liability, and governing law for the Finance and SEC EDGAR MCP servers.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://toolstem.com/terms/">
+  <meta property="og:url" content="https://toolstem.com/terms/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    // Theme bootstrap (runs before paint to avoid flash)
+    (function() {
+      var t = (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Toolstem home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+        <path d="M4 7 L12 11 L20 7"/>
+        <path d="M12 11 L12 21"/>
+      </svg>
+      <span>Toolstem</span>
+    </a>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/finance/">Finance</a>
+      <a href="/sec/">SEC</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="container container--narrow prose">
+    <h1>Terms of Service</h1>
+    <p class="meta">Last updated: May 4, 2026</p>
+
+    <p>By using the Toolstem MCP servers (the "Service"), you agree to these terms. If you do not agree, do not use the Service.</p>
+
+    <h2>The Service</h2>
+    <p>Toolstem operates two pay-per-call MCP servers: a Finance server (<code>mcp.toolstem.com/mcp/finance</code>) and an SEC EDGAR server (<code>mcp.toolstem.com/mcp/sec</code>). The servers expose financial and regulatory data via the Model Context Protocol, settled per call via x402 or Apify.</p>
+
+    <h2>Acceptable use</h2>
+    <p>You may use the Service for any lawful purpose, including building autonomous agents, integrating with research tools, and developing trading or analytical software. You agree not to:</p>
+    <ul>
+      <li>Use the Service in a way that violates applicable law, including securities and market-manipulation laws.</li>
+      <li>Attempt to circumvent the payment mechanism or access the Service without paying.</li>
+      <li>Resell or rebrand the data feeds beyond your own product or agent without modification or value-add (i.e., do not run a thin proxy).</li>
+      <li>Probe, attack, or attempt to disrupt the Service.</li>
+      <li>Use the Service to violate the terms of the upstream providers (Financial Modeling Prep, Apify, Coinbase CDP, SEC EDGAR).</li>
+    </ul>
+
+    <h2>Payment</h2>
+    <p>Payment is per call. The price is published on each server's product page and in the 402 challenge response. Payments settled via x402 are final at the moment of on-chain settlement. Payments via Apify are governed additionally by Apify's terms.</p>
+    <p>Refunds for failed responses (HTTP 5xx errors caused by the Service) are issued on request to <a href="mailto:admin@toolstem.com">admin@toolstem.com</a>, evaluated case by case.</p>
+
+    <h2>Data accuracy</h2>
+    <p>The Finance server relays data from Financial Modeling Prep. The SEC server relays data from public SEC EDGAR filings. We do not warrant the accuracy or completeness of upstream data. Do not rely on Toolstem as a sole source of truth for trading decisions, regulatory filings, or other consequential actions.</p>
+
+    <h2>No investment advice</h2>
+    <p>Nothing returned by the Service constitutes investment advice, a recommendation, or a solicitation. Data is provided for informational and integration purposes only.</p>
+
+    <h2>Availability</h2>
+    <p>The Service is provided on an as-available basis. We aim for high uptime but do not commit to a specific service-level agreement. Scheduled and emergency maintenance may occur without notice.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>To the fullest extent permitted by applicable law, Toolstem and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenue, whether incurred directly or indirectly, arising out of your use of the Service. Total liability for any claim relating to the Service is limited to the amount you paid for the Service in the 30 days preceding the claim.</p>
+
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Toolstem and its operators from any claim, loss, or expense arising out of your use of the Service or your violation of these terms.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms. Material changes will be announced on the Toolstem GitHub organization with at least 14 days notice. Continued use of the Service after changes take effect constitutes acceptance.</p>
+
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of the State of Texas, USA, without regard to conflict of laws principles.</p>
+
+    <h2>Contact</h2>
+    <p>Questions: <a href="mailto:admin@toolstem.com">admin@toolstem.com</a>.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="site-header__brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+            <path d="M4 7 L12 11 L20 7"/>
+            <path d="M12 11 L12 21"/>
+          </svg>
+          <span>Toolstem</span>
+        </a>
+        <p>Pay-per-call MCP servers for AI agents. Operated autonomously. Built in Austin, Texas.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servers">
+        <h2 class="footer-col__heading">Servers</h2>
+        <ul>
+          <li><a href="/finance/">Finance</a></li>
+          <li><a href="/sec/">SEC EDGAR</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h2 class="footer-col__heading">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://apify.com/toolstem" rel="noopener noreferrer">Apify Store</a></li>
+          <li><a href="/docs/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h2 class="footer-col__heading">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Toolstem. Built in Austin, Texas.</span>
+      <span><a href="mailto:admin@toolstem.com">admin@toolstem.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>// Theme toggle (in-memory only, sandbox-safe) + mobile nav drawer
+(function () {
+  var root = document.documentElement;
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tt = e.target.closest('[data-theme-toggle]');
+    if (tt) {
+      var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+      return;
+    }
+    var navBtn = e.target.closest('[data-nav-toggle]');
+    if (navBtn) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        var open = nav.classList.toggle('site-nav--open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
+  });
+
+  // Close nav when a link is clicked (mobile)
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav a')) {
+      var nav = document.getElementById('site-nav');
+      if (nav && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        var btn = document.querySelector('[data-nav-toggle]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

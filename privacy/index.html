@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolstem — Privacy Policy</title>
+  <meta name="description" content="Toolstem privacy policy. What data the MCP servers handle, how x402 payments settle on Base, what we don't collect, and your rights under GDPR and CCPA.">
+  <meta property="og:title" content="Toolstem — Privacy Policy">
+  <meta property="og:description" content="Toolstem privacy policy. What data the MCP servers handle, how x402 payments settle on Base, what we don't collect, and your rights under GDPR and CCPA.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://toolstem.com/privacy/">
+  <meta property="og:url" content="https://toolstem.com/privacy/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    // Theme bootstrap (runs before paint to avoid flash)
+    (function() {
+      var t = (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Toolstem home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+        <path d="M4 7 L12 11 L20 7"/>
+        <path d="M12 11 L12 21"/>
+      </svg>
+      <span>Toolstem</span>
+    </a>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/finance/">Finance</a>
+      <a href="/sec/">SEC</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="container container--narrow prose">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: May 4, 2026</p>
+
+    <p>Toolstem operates two pay-per-call MCP servers: a Finance server at <code>mcp.toolstem.com/mcp/finance</code> and an SEC EDGAR server at <code>mcp.toolstem.com/mcp/sec</code>. This policy describes what data those servers handle and what they do with it.</p>
+
+    <h2>What we collect</h2>
+    <h3>Tool requests</h3>
+    <p>When your agent calls a tool, we receive: the tool name, the arguments you pass (e.g. a stock ticker), and HTTP headers required by the MCP and x402 protocols. We log these for operational reliability (debugging, abuse prevention, capacity planning) and retain them for up to 30 days.</p>
+
+    <h3>Payment data (x402 path)</h3>
+    <p>If you pay via x402, your agent's wallet signs an EIP-3009 <code>transferWithAuthorization</code> message which we relay to the Coinbase CDP facilitator for settlement on Base mainnet. We see the signed authorization (sender wallet address, amount, nonce) and the resulting on-chain transaction hash. We do not custody your funds. We do not see your private key.</p>
+
+    <h3>Payment data (Apify path)</h3>
+    <p>If you use the Apify path, Apify handles billing. We receive an Apify-issued token to confirm your account is funded; we do not see your payment instrument. See <a href="https://apify.com/privacy">Apify's privacy policy</a>.</p>
+
+    <h3>Server logs</h3>
+    <p>Standard server logs include: source IP, timestamp, response code, and request size. Logs are rotated and retained for up to 30 days for security and abuse mitigation.</p>
+
+    <h2>What we don't collect</h2>
+    <ul>
+      <li>We do not collect names, emails, phone numbers, or any other personally identifiable information through the API. The servers are designed for autonomous agent use.</li>
+      <li>We do not run third-party analytics or trackers on the API endpoints. The marketing website (<code>toolstem.com</code>) uses no analytics or tracking cookies as of this policy's date.</li>
+      <li>We do not sell or share request data with third parties except as required to fulfill your request (e.g. forwarding ticker queries to upstream financial data providers like Financial Modeling Prep, or fetching public filings from SEC EDGAR).</li>
+      <li>We do not custody user funds. All x402 payments settle directly between your wallet and our receiving address on the Base blockchain.</li>
+    </ul>
+
+    <h2>Third parties</h2>
+    <p>We use the following service providers in delivering the Toolstem servers:</p>
+    <ul>
+      <li><strong>Cloudflare</strong> — hosts the proxy and edge for <code>mcp.toolstem.com</code>. <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</li>
+      <li><strong>Apify</strong> — hosts the underlying actor that fulfills tool calls. <a href="https://apify.com/privacy">Apify privacy policy</a>.</li>
+      <li><strong>Coinbase Developer Platform (CDP)</strong> — operates the x402 facilitator that settles payments. <a href="https://www.coinbase.com/legal/privacy">Coinbase privacy policy</a>.</li>
+      <li><strong>Financial Modeling Prep</strong> — upstream data source for the Finance server. <a href="https://site.financialmodelingprep.com/privacy">FMP privacy policy</a>.</li>
+      <li><strong>SEC EDGAR</strong> — public US Securities and Exchange Commission filings database, used by the SEC server.</li>
+    </ul>
+
+    <h2>Blockchain transparency</h2>
+    <p>All x402 payments settle on the public Base blockchain. The sender wallet, recipient wallet, amount, and timestamp of every payment are publicly visible on Base block explorers. This is inherent to public blockchains, not a Toolstem policy.</p>
+
+    <h2>Your rights (GDPR, CCPA, and similar laws)</h2>
+    <p>Depending on where you reside, you may have rights to access, correct, delete, restrict processing of, or port your personal data, and to object to certain processing or withdraw consent. The Toolstem servers are designed for autonomous agent use and do not collect personally identifiable information through the API. The data we do hold (request logs tied to wallet addresses or Apify tokens, plus on-chain payment records visible to anyone on Base) is described above.</p>
+    <p>If you are a resident of the EU/EEA/UK (GDPR), California (CCPA/CPRA), or another jurisdiction with data protection laws, and you would like to exercise any applicable right with respect to data we hold about you, email <a href="mailto:admin@toolstem.com">admin@toolstem.com</a> with the wallet address or Apify account in question. We will respond within 30 days. We do not sell personal information.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We will update this policy when we change how data is handled. The date at the top reflects the most recent revision. Material changes will be announced on the Toolstem GitHub organization.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:admin@toolstem.com">admin@toolstem.com</a>.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="site-header__brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+            <path d="M4 7 L12 11 L20 7"/>
+            <path d="M12 11 L12 21"/>
+          </svg>
+          <span>Toolstem</span>
+        </a>
+        <p>Pay-per-call MCP servers for AI agents. Operated autonomously. Built in Austin, Texas.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servers">
+        <h2 class="footer-col__heading">Servers</h2>
+        <ul>
+          <li><a href="/finance/">Finance</a></li>
+          <li><a href="/sec/">SEC EDGAR</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h2 class="footer-col__heading">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://apify.com/toolstem" rel="noopener noreferrer">Apify Store</a></li>
+          <li><a href="/docs/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h2 class="footer-col__heading">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Toolstem. Built in Austin, Texas.</span>
+      <span><a href="mailto:admin@toolstem.com">admin@toolstem.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>// Theme toggle (in-memory only, sandbox-safe) + mobile nav drawer
+(function () {
+  var root = document.documentElement;
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tt = e.target.closest('[data-theme-toggle]');
+    if (tt) {
+      var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+      return;
+    }
+    var navBtn = e.target.closest('[data-nav-toggle]');
+    if (navBtn) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        var open = nav.classList.toggle('site-nav--open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
+  });
+
+  // Close nav when a link is clicked (mobile)
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav a')) {
+      var nav = document.getElementById('site-nav');
+      if (nav && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        var btn = document.querySelector('[data-nav-toggle]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
