@@ -121,6 +121,25 @@
   }
 }</code></pre>
     </div>
+
+    <div class="code-block" style="margin-top: 1.5rem;">
+      <div class="code-block__header"><span>LangChain.js · @langchain/mcp-adapters</span><span>x402</span></div>
+<pre><code><span class="kw">import</span> { MultiServerMCPClient } <span class="kw">from</span> <span class="str">"@langchain/mcp-adapters"</span>;
+<span class="kw">import</span> { ChatOpenAI } <span class="kw">from</span> <span class="str">"@langchain/openai"</span>;
+<span class="kw">import</span> { createReactAgent } <span class="kw">from</span> <span class="str">"@langchain/langgraph/prebuilt"</span>;
+
+<span class="kw">const</span> client = <span class="kw">new</span> MultiServerMCPClient({
+  toolstem_sec: {
+    transport: <span class="str">"streamable_http"</span>,
+    url: <span class="str">"https://mcp.toolstem.com/mcp/sec"</span>,
+  },
+});
+
+<span class="kw">const</span> tools = <span class="kw">await</span> client.getTools();
+<span class="kw">const</span> agent = createReactAgent({ llm: <span class="kw">new</span> ChatOpenAI(), tools });
+<span class="kw">await</span> agent.invoke({ messages: <span class="str">"Has TSLA filed any 8-K material events in the last 90 days?"</span> });</code></pre>
+    </div>
+    <p style="margin-top: 1rem; color: var(--color-text-muted); font-size: 0.875rem;">Works natively with Claude, OpenAI Agents SDK, AutoGen, CrewAI, and any MCP-aware client. Pay-per-call via x402 on Base mainnet — no API key required.</p>
   </div>
 </section>
 
