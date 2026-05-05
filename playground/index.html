@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolstem Playground — Try MCP tools without a wallet</title>
+  <meta name="description" content="Try Toolstem MCP tools with real, cached responses. No wallet required. See get_stock_snapshot, get_company_filings_summary, and compare_companies in action.">
+  <meta property="og:title" content="Toolstem Playground — Try MCP tools without a wallet">
+  <meta property="og:description" content="Try Toolstem MCP tools with real, cached responses. No wallet required.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://toolstem.com/playground/">
+  <meta property="og:url" content="https://toolstem.com/playground/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (function() {
+      var t = (window.matchMedia && matchMedia('(prefers-color-scheme:dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <style>
+    .playground-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    .playground-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .playground-card__tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: var(--space-1) var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      background: var(--color-surface-2);
+      border-radius: var(--radius-full);
+    }
+    .playground-card h3 {
+      font-size: var(--text-lg);
+      letter-spacing: -0.02em;
+    }
+    .playground-card p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+    .playground-card__tool {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+    }
+    .playground-card__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      margin-top: auto;
+    }
+    .playground-card__btn:hover {
+      background: var(--color-primary-hover);
+    }
+    .playground-card__btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .playground-card__result {
+      display: none;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: var(--space-4);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+      color: var(--color-text);
+    }
+    .playground-card__result--visible {
+      display: block;
+    }
+    .playground-card__result--error {
+      border-color: var(--color-error);
+      color: var(--color-error);
+    }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Toolstem home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+        <path d="M4 7 L12 11 L20 7"/>
+        <path d="M12 11 L12 21"/>
+      </svg>
+      <span>Toolstem</span>
+    </a>
+    <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/finance/">Finance</a>
+      <a href="/sec/">SEC</a>
+      <a href="/playground/">Playground</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container">
+    <span class="hero__eyebrow">Playground · free trial</span>
+    <h1>Try Toolstem tools — no wallet needed.</h1>
+    <p class="hero__lede">
+      Real, cached AAPL responses from our paid MCP servers.
+      To call with your own ticker, connect a wallet — see <a href="/docs/">docs</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="playground-grid">
+
+      <div class="playground-card">
+        <span class="playground-card__tag">Finance</span>
+        <h3>Stock Snapshot</h3>
+        <p>Get a comprehensive snapshot of AAPL: price, valuation, DCF signal, and analyst rating in one call.</p>
+        <div class="playground-card__tool">get_stock_snapshot({ symbol: "AAPL" })</div>
+        <button class="playground-card__btn" data-tool="get_stock_snapshot" type="button">Run</button>
+        <div class="playground-card__result" aria-live="polite"></div>
+      </div>
+
+      <div class="playground-card">
+        <span class="playground-card__tag">SEC</span>
+        <h3>Company Filings Summary</h3>
+        <p>Filing overview for AAPL: recent filings, velocity signal, material event count, and disclosure volume trend.</p>
+        <div class="playground-card__tool">get_company_filings_summary({ ticker_or_cik: "AAPL" })</div>
+        <button class="playground-card__btn" data-tool="get_company_filings_summary" type="button">Run</button>
+        <div class="playground-card__result" aria-live="polite"></div>
+      </div>
+
+      <div class="playground-card">
+        <span class="playground-card__tag">Finance</span>
+        <h3>Compare Companies</h3>
+        <p>Side-by-side comparison of AAPL and MSFT across valuation, profitability, health, growth, and dividends.</p>
+        <div class="playground-card__tool">compare_companies({ symbols: ["AAPL", "MSFT"] })</div>
+        <button class="playground-card__btn" data-tool="compare_companies" type="button">Run</button>
+        <div class="playground-card__result" aria-live="polite"></div>
+      </div>
+
+    </div>
+
+    <p style="margin-top: var(--space-10); color: var(--color-text-muted); font-size: var(--text-sm); max-width: 60ch;">
+      These are real responses from Toolstem's paid MCP servers, cached for the playground. To call with your own ticker and get live data, connect an EVM wallet on Base — see <a href="/docs/">the docs</a>.
+    </p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="site-header__brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+            <path d="M4 7 L12 3 L20 7 L20 17 L12 21 L4 17 Z"/>
+            <path d="M4 7 L12 11 L20 7"/>
+            <path d="M12 11 L12 21"/>
+          </svg>
+          <span>Toolstem</span>
+        </a>
+        <p>Pay-per-call MCP servers for AI agents. Operated autonomously. Built in Austin, Texas.</p>
+      </div>
+      <nav class="footer-col" aria-label="Servers">
+        <h2 class="footer-col__heading">Servers</h2>
+        <ul>
+          <li><a href="/finance/">Finance</a></li>
+          <li><a href="/sec/">SEC EDGAR</a></li>
+          <li><a href="/docs/">Documentation</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Resources">
+        <h2 class="footer-col__heading">Resources</h2>
+        <ul>
+          <li><a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="/playground/">Playground</a></li>
+          <li><a href="/docs/#integrations">Integrations</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-label="Legal">
+        <h2 class="footer-col__heading">Legal</h2>
+        <ul>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><a href="/support/">Support</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 Toolstem. Built in Austin, Texas.</span>
+      <span><a href="mailto:admin@toolstem.com">admin@toolstem.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    var btn = document.querySelector('[data-theme-toggle]');
+    if (btn) btn.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+
+  document.addEventListener('click', function (e) {
+    var tt = e.target.closest('[data-theme-toggle]');
+    if (tt) {
+      var current = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+      return;
+    }
+    var navBtn = e.target.closest('[data-nav-toggle]');
+    if (navBtn) {
+      var nav = document.getElementById('site-nav');
+      if (nav) {
+        var open = nav.classList.toggle('site-nav--open');
+        navBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      return;
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#site-nav a')) {
+      var nav = document.getElementById('site-nav');
+      if (nav && nav.classList.contains('site-nav--open')) {
+        nav.classList.remove('site-nav--open');
+        var btn = document.querySelector('[data-nav-toggle]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+
+  // Playground buttons
+  var BASE = 'https://mcp.toolstem.com/playground/';
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-tool]');
+    if (!btn) return;
+    var tool = btn.getAttribute('data-tool');
+    var resultEl = btn.parentNode.querySelector('.playground-card__result');
+    if (!resultEl) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Loading\u2026';
+    resultEl.className = 'playground-card__result playground-card__result--visible';
+    resultEl.textContent = 'Calling ' + tool + '\u2026';
+
+    fetch(BASE + encodeURIComponent(tool), { method: 'GET' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status + (res.status === 404 ? ' \u2014 Playground endpoint not deployed yet. Check back soon!' : ''));
+        return res.json();
+      })
+      .then(function (data) {
+        resultEl.className = 'playground-card__result playground-card__result--visible';
+        resultEl.textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(function (err) {
+        resultEl.className = 'playground-card__result playground-card__result--visible playground-card__result--error';
+        resultEl.textContent = err.message || 'Something went wrong. Please try again.';
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Run';
+      });
+  });
+})();
+</script>
+</body>
+</html>

@@ -45,6 +45,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="/finance/">Finance</a>
       <a href="/sec/">SEC</a>
+      <a href="/playground/">Playground</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
@@ -63,6 +64,12 @@
     <span class="hero__eyebrow">Documentation</span>
     <h1 style="font-size: var(--text-2xl); margin: 1rem 0 1.5rem;">Integrate Toolstem in 30 seconds.</h1>
     <p class="section__lede">Both servers speak the Model Context Protocol over Streamable HTTP. Pick your client, paste a config block, you're done.</p>
+
+    <div style="margin: 2rem 0; padding: var(--space-5) var(--space-6); border-left: 4px solid var(--color-accent); background: var(--color-surface-2); border-radius: var(--radius-md);">
+      <p style="margin-bottom: var(--space-3);"><strong>Wallet prerequisite.</strong> Toolstem MCP servers are paid AI-to-AI: <code>tools/call</code> requires <strong>0.01 USDC on Base mainnet</strong> per invocation, signed by your wallet via x402. <code>initialize</code> and <code>tools/list</code> are free.</p>
+      <p style="margin-bottom: var(--space-3);">Supported wallets: any EVM wallet on Base — <strong>Coinbase Smart Wallet</strong>, <strong>MetaMask</strong>, or any EIP-3009-compatible signer. USDC contract on Base: <code>0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913</code>.</p>
+      <p>No wallet yet? <a href="/playground/">Try the playground</a> — free, cached responses, no wallet needed.</p>
+    </div>
 
     <h2 class="section__title" style="margin-top: 3rem;" id="endpoints">Endpoints</h2>
     <div class="table-wrap">
