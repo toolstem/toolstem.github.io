@@ -45,6 +45,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="/finance/">Finance</a>
       <a href="/sec/">SEC</a>
+      <a href="/playground/">Playground</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
@@ -94,20 +95,14 @@
     </div>
 
     <h2 class="section__title" style="margin-top: 3rem;">Tool surface</h2>
-    <p class="section__lede">A representative slice. Full reference in the <a href="/docs/#finance-tools">documentation</a>.</p>
+    <p class="section__lede">3 composite tools — each synthesizes multiple data sources into one agent-ready response. Full reference in the <a href="/docs/#finance-tools">documentation</a>.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
         <tbody>
-          <tr><td><code>get_quote</code></td><td>Real-time price, change, volume, market cap for a ticker</td></tr>
-          <tr><td><code>get_company_profile</code></td><td>Company description, sector, industry, exchange, IPO date</td></tr>
-          <tr><td><code>get_income_statement</code></td><td>Quarterly or annual income statement</td></tr>
-          <tr><td><code>get_balance_sheet</code></td><td>Quarterly or annual balance sheet</td></tr>
-          <tr><td><code>get_cash_flow</code></td><td>Quarterly or annual cash flow statement</td></tr>
-          <tr><td><code>get_key_metrics</code></td><td>P/E, P/B, ROE, debt-to-equity, dividend yield</td></tr>
-          <tr><td><code>get_analyst_estimates</code></td><td>Consensus EPS and revenue forecasts</td></tr>
-          <tr><td><code>get_earnings_calendar</code></td><td>Upcoming earnings dates by ticker or window</td></tr>
-          <tr><td><code>search_symbol</code></td><td>Symbol search across global exchanges</td></tr>
+          <tr><td><code>get_stock_snapshot</code></td><td>Real-time price, valuation (DCF, P/E), analyst rating, and fundamentals in one call</td></tr>
+          <tr><td><code>get_company_metrics</code></td><td>Deep financial analysis: profitability, health, cash flow, 3-year growth CAGRs, derived signals</td></tr>
+          <tr><td><code>compare_companies</code></td><td>Side-by-side comparison of 2-5 companies across valuation, profitability, health, growth, and dividends</td></tr>
         </tbody>
       </table>
     </div>

@@ -45,6 +45,7 @@
     <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="/finance/">Finance</a>
       <a href="/sec/">SEC</a>
+      <a href="/playground/">Playground</a>
       <a href="/docs/">Docs</a>
       <a href="https://github.com/toolstem" rel="noopener noreferrer">GitHub</a>
       <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
@@ -67,6 +68,7 @@
       Just HTTP 402, settled on Base in seconds.
       Built for autonomous agents that buy data without a human in the loop.
     </p>
+    <p style="margin-bottom: var(--space-4); font-size: var(--text-sm);"><a href="/playground/">Try without a wallet &rarr;</a> Real, cached responses from our paid MCP — no wallet needed.</p>
     <div class="hero__cta">
       <a href="/docs/" class="btn btn--primary">
         Read the docs
@@ -129,7 +131,7 @@
 <span class="kw">$</span> curl -i -X POST https://mcp.toolstem.com/mcp/finance \
     -H <span class="str">"Content-Type: application/json"</span> \
     -d <span class="str">'{"jsonrpc":"2.0","id":1,"method":"tools/call",
-        "params":{"name":"get_quote","arguments":{"symbol":"AAPL"}}}'</span>
+        "params":{"name":"get_stock_snapshot","arguments":{"symbol":"AAPL"}}}'</span>
 
 <span class="cmt"># Server responds: HTTP 402 Payment Required.
 # The response body is empty {}; the x402 challenge
@@ -173,9 +175,14 @@ payment-required: eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoi...
   <span class="kw">"jsonrpc"</span>: <span class="str">"2.0"</span>, <span class="kw">"id"</span>: 1,
   <span class="kw">"result"</span>: {
     <span class="kw">"symbol"</span>: <span class="str">"AAPL"</span>,
-    <span class="kw">"price"</span>: 184.92,
-    <span class="kw">"change"</span>: 1.34,
-    <span class="kw">"marketCap"</span>: 2840000000000
+    <span class="kw">"company_name"</span>: <span class="str">"Apple Inc."</span>,
+    <span class="kw">"price"</span>: { <span class="kw">"current"</span>: 198.15, <span class="kw">"change_percent"</span>: 0.72 },
+    <span class="kw">"valuation"</span>: {
+      <span class="kw">"market_cap_readable"</span>: <span class="str">"$3.05T"</span>,
+      <span class="kw">"pe_ratio"</span>: 32.8,
+      <span class="kw">"dcf_signal"</span>: <span class="str">"FAIRLY VALUED"</span>
+    },
+    <span class="kw">"rating"</span>: { <span class="kw">"recommendation"</span>: <span class="str">"Strong Buy"</span> }
   }
 }</code></pre>
     </div>
